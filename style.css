@@ -99,3 +99,7 @@ body {
 				-2px -2px #070e07,
 				-1px -1px #070e07;
 }
+
+.smallSizeFont {
+	font-size: 1.5em;
+}

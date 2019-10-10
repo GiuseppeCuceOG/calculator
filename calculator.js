@@ -8,9 +8,6 @@ let plus = document.getElementById('plus');
 let minus = document.getElementById('minus');
 let plusMinus = document.getElementById('plusMinus');
 let dot = document.getElementById('dot');
-let dotEnabled = true;
-let dotsHistory = [];
-
 let one = document.getElementById('one');
 let two = document.getElementById('two');
 let three = document.getElementById('three');
@@ -21,39 +18,50 @@ let seven = document.getElementById('seven');
 let eight = document.getElementById('eight');
 let nine = document.getElementById('nine');
 let zero = document.getElementById('zero');
+let dotEnabled = true;
 
 const getInt = (num) => {
 	
 	switch(num) {
 		case 1:
 			input_var.value += '1';
+			moreThanTwelve();
 			break;
 		case 2:
 			input_var.value += '2';
+			moreThanTwelve();
 			break;
 		case 3:
 			input_var.value += '3';
+			moreThanTwelve();
 			break;
 		case 4:
 			input_var.value += '4';
+			moreThanTwelve();
 			break;
 		case 5:
 			input_var.value += '5';
+			moreThanTwelve();
 			break;
 		case 6:
 			input_var.value += '6';
+			moreThanTwelve();
 			break;
 		case 7:
 			input_var.value += '7';
+			moreThanTwelve();
 			break;
 		case 8:
 			input_var.value += '8';
+			moreThanTwelve();
 			break;
 		case 9:
 			input_var.value += '9';
+			moreThanTwelve();
 			break;
 		case 0:
 			input_var.value += '0';
+			moreThanTwelve();
 			break;
 	}
 }
@@ -66,16 +74,13 @@ const getOperand = (op) => {
 				backspace();
 				input_var.value += '+';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			else if(input_var.value.length == 0) {
 				input_var.value += '';
-				console.log(dotEnabled);
 			}
 			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				input_var.value += '+';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			break;
 
@@ -84,7 +89,6 @@ const getOperand = (op) => {
 				backspace();
 				input_var.value += '-';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			else if(input_var.value.length == 0) {
 				input_var.value += '';
@@ -92,7 +96,6 @@ const getOperand = (op) => {
 			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.') {
 				input_var.value += '-';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			break;
 
@@ -144,17 +147,24 @@ const getOperand = (op) => {
 			if(!isNaN(input_var.value.slice(-1)) && input_var.value.length != 0 && dotEnabled) {
 				input_var.value += '.';
 				dotEnabled = false;
-				console.log(dotEnabled);
 			}
 			else if(input_var.value.length == 0) {
 				input_var.value += '0.';
 				dotEnabled = false;
-				console.log(dotEnabled);
 			}
 			else {
 				input_var.value += '';
 			}
 			break;
+	}
+}
+
+const moreThanTwelve = () => {
+	if(input_var.value.length > 12) {
+		input_var.classList.add("smallSizeFont");
+	}
+	else {
+		input_var.classList.remove("smallSizeFont");
 	}
 }
 
@@ -164,18 +174,22 @@ const clearScreen = () => {
 }
 
 const backspace = () => {
+	moreThanTwelve();
 	var x = input_var.value;
 	if(x.length > 0) {
-		x = x.substring(0, x.length-1);
-		input_var.value = x;
-		console.log(input_var.value.slice(-1));
 
-		if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-2, -1) != '.') {
-			dotEnabled = true;
+		while(x.includes('.')) {
+			if(isNaN(x.slice(-1))) {
+				dotEnabled = true;
+			}
+			else {
+				dotEnabled = false;
+			}
+			x = x.substring(0, x.length-1);
+			input_var.value = x;
+			return false;
 		}
-		else {
-			dotEnabled = false;
-		}
+
 	}
 }
 
