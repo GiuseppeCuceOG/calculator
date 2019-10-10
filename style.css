@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,700&display=swap');
+
+body {
+	background-color: #353535;
+	color: #eee;
+}
+
+.interactiveBtn {
+	background-color: #0d0d0d;
+	color: #f4f4f4;
+}
+
+.totalBtn {
+	width: 190%;
+}
+
+.calculator-header,
+.calculator-buttons {
+	width: 300px;
+	background-color: #202320;
+	padding: 20px;
+	box-shadow: 2px 2px #141414,
+				3px 3px #141414,
+				4px 4px #141414,
+				5px 5px #141414,
+				6px 6px #141414,
+				7px 7px #141414,
+				8px 8px #141414,
+				9px 9px #141414,
+				10px 10px #0f0f0f,
+				15px 15px #0f0f0f,
+				20px 20px 4px #0f0f0f,
+				25px 25px 4px #0f0f0f;
+}
+
+.calculator-header {
+	border-radius: 10px 10px 0 0;
+	margin: 90px auto 0px auto;
+}
+
+.calculator-header input {
+	background-color: #081308;
+	color: #6f5;
+	text-shadow: 0px 0px 3px #6f5;
+	font-family: 'Orbitron', sans-serif;
+}
+
+.calculator-header input::placeholder {
+	color: #6f5;
+	padding-right: 5px;
+}
+
+.calculator-buttons {
+	display: grid;
+	grid-template-columns: 25% 25% 25% auto;
+	grid-gap: 3px;
+	margin: 0px auto 20px auto;
+	border-radius: 0 0 10px 10px;
+}
+
+.calculator-buttons input {
+	padding: .5em;
+	font-size: 1.5em;
+	font-family: 'Orbitron', sans-serif;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 2px 2px #080808;
+	overflow: hidden;
+	transition: box-shadow .1s, margin .1s, color .1s, text-shadow .1s;
+}
+
+.calculator-buttons input:active {
+	box-shadow: 0px 0px 5px #6f5;
+	text-shadow: 0px 0px 3px #6f5;
+	color: #6d5;
+}
+
+.calculator-buttons input:focus {
+	outline: none;
+}
+
+.calculator-compute {
+	width: 143px;
+}
+
+.calculator-cancel {
+	background-color: #300808;
+    color: #ccc;
+}
+
+#input, #result {
+	border: none;
+	text-align: right;
+	width: 100%;
+	height: 40px;
+	font-size: 2em;
+}
+
+#input {
+	border-radius: 5px 5px 0px 0px;
+	box-shadow: -4px -4px #070e07,
+				-3px -3px #070e07,
+				-2px -2px #070e07,
+				-1px -1px #070e07,
+				-4px 34px #070e07,
+				-1px 42px #070e07,
+				-1px 41px #070e07,
+				-2px 40px #070e07,
+				-3px 39px #070e07,
+				-4px 38px #070e07;
+}
+
+#result {
+	border-radius: 0px 0px 5px 5px;
+}
