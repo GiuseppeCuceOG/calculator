@@ -174,22 +174,24 @@ const clearScreen = () => {
 }
 
 const backspace = () => {
+	
 	moreThanTwelve();
 	var x = input_var.value;
+
 	if(x.length > 0) {
 
-		while(x.includes('.')) {
+		/*while(x.includes('.')) {
 			if(isNaN(x.slice(-1))) {
 				dotEnabled = true;
 			}
 			else {
 				dotEnabled = false;
 			}
-			x = x.substring(0, x.length-1);
-			input_var.value = x;
 			return false;
-		}
+		}*/
 
+		x = x.substring(0, x.length-1);
+		input_var.value = x;
 	}
 }
 
