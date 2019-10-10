@@ -8,6 +8,8 @@ let plus = document.getElementById('plus');
 let minus = document.getElementById('minus');
 let plusMinus = document.getElementById('plusMinus');
 let dot = document.getElementById('dot');
+let dotEnabled = true;
+let dotsHistory = [];
 
 let one = document.getElementById('one');
 let two = document.getElementById('two');
@@ -60,28 +62,37 @@ const getOperand = (op) => {
 
 	switch(op) {
 		case '+':
-			if(isNaN(input_var.value.slice(-1))) {
+			if(isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				backspace();
 				input_var.value += '+';
+				dotEnabled = true;
+				console.log(dotEnabled);
 			}
 			else if(input_var.value.length == 0) {
 				input_var.value += '';
+				console.log(dotEnabled);
 			}
-			else if(!isNaN(input_var.value.slice(-1))) {
+			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				input_var.value += '+';
+				dotEnabled = true;
+				console.log(dotEnabled);
 			}
 			break;
 
 		case '-':
-			if(isNaN(input_var.value.slice(-1))) {
+			if(isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				backspace();
 				input_var.value += '-';
+				dotEnabled = true;
+				console.log(dotEnabled);
 			}
 			else if(input_var.value.length == 0) {
 				input_var.value += '';
 			}
-			else if(!isNaN(input_var.value.slice(-1))) {
+			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.') {
 				input_var.value += '-';
+				dotEnabled = true;
+				console.log(dotEnabled);
 			}
 			break;
 
@@ -89,12 +100,14 @@ const getOperand = (op) => {
 			if((input_var.value.length == 1 && isNaN(input_var.value.slice(-1))) || input_var.value.length == 0) {
 				input_var.value += '';
 			}
-			else if(isNaN(input_var.value.slice(-1))) {
+			else if(isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				backspace();
 				input_var.value += '*';
+				dotEnabled = true;
 			}
-			else if(!isNaN(input_var.value.slice(-1))) {
+			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				input_var.value += '*';
+				dotEnabled = true;
 			}
 			break;
 
@@ -102,12 +115,14 @@ const getOperand = (op) => {
 			if((input_var.value.length == 1 && isNaN(input_var.value.slice(-1))) || input_var.value.length == 0) {
 				input_var.value += '';
 			}
-			else if(isNaN(input_var.value.slice(-1))) {
+			else if(isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				backspace();
 				input_var.value += '/';
+				dotEnabled = true;
 			}
-			else if(!isNaN(input_var.value.slice(-1))) {
+			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				input_var.value += '/';
+				dotEnabled = true;
 			}
 			break;
 
@@ -126,8 +141,15 @@ const getOperand = (op) => {
 			break;
 
 		case '.':
-			if(!isNaN(input_var.value.slice(-1))) {
+			if(!isNaN(input_var.value.slice(-1)) && input_var.value.length != 0 && dotEnabled) {
 				input_var.value += '.';
+				dotEnabled = false;
+				console.log(dotEnabled);
+			}
+			else if(input_var.value.length == 0) {
+				input_var.value += '0.';
+				dotEnabled = false;
+				console.log(dotEnabled);
 			}
 			else {
 				input_var.value += '';
@@ -138,6 +160,7 @@ const getOperand = (op) => {
 
 const clearScreen = () => {
 	input_var.value = "";
+	dotEnabled = true;
 }
 
 const backspace = () => {
@@ -145,12 +168,27 @@ const backspace = () => {
 	if(x.length > 0) {
 		x = x.substring(0, x.length-1);
 		input_var.value = x;
+		console.log(input_var.value.slice(-1));
+
+		if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-2, -1) != '.') {
+			dotEnabled = true;
+		}
+		else {
+			dotEnabled = false;
+		}
 	}
 }
 
 const compute = () => {
 	var tot = eval(input_var.value);
 	input_var.value = tot;
+
+	if(input_var.value.includes('.')) {
+		dotEnabled = false;
+	}
+	else {
+		dotEnabled = true;
+	}
 }
 
 clearBtn.addEventListener("click", clearScreen);

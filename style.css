@@ -19,7 +19,8 @@ body {
 	width: 300px;
 	background-color: #202320;
 	padding: 20px;
-	box-shadow: 2px 2px #141414,
+	box-shadow: 1px 1px #141414,
+				2px 2px #141414,
 				3px 3px #141414,
 				4px 4px #141414,
 				5px 5px #141414,
@@ -27,8 +28,8 @@ body {
 				7px 7px #141414,
 				8px 8px #141414,
 				9px 9px #141414,
-				10px 10px #0f0f0f,
-				15px 15px #0f0f0f,
+				10px 10px 4px #0f0f0f,
+				15px 15px 4px #0f0f0f,
 				20px 20px 4px #0f0f0f,
 				25px 25px 4px #0f0f0f;
 }
