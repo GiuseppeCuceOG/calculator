@@ -12,10 +12,10 @@
 		<input type="text" id="result" readonly>
 	</div>
 	<div class="calculator-buttons">
-		<input type="button" class="calculator-cancel" value="C" onclick="clearScreen()">
+		<input type="button" class="calculator-cancel" id="clearScreen" value="C">
 		<input type="button" class="interactiveBtn" value="&#247" onclick="getOperand('/')">
 		<input type="button" class="interactiveBtn" value="x" onclick="getOperand('*')">
-		<input type="button" class="interactiveBtn" value="&#8592" onclick="backspace()">
+		<input type="button" class="interactiveBtn" id="back" value="&#8592">
 		<input type="button" class="interactiveBtn" value="1" onclick="getInt(1)">
 		<input type="button" class="interactiveBtn" value="2" onclick="getInt(2)">
 		<input type="button" class="interactiveBtn" value="3" onclick="getInt(3)">
@@ -30,7 +30,7 @@
 		<input type="button" class="interactiveBtn" value="+/-" onclick="getOperand('+/-')">
 		<input type="button" class="interactiveBtn" value="." onclick="getOperand('.')">
 		<input type="button" class="interactiveBtn" value="0" onclick="getInt(0)">
-		<input type="button" class="interactiveBtn totalBtn" value="=" onclick="compute()">
+		<input type="button" class="interactiveBtn totalBtn" id="compute" value="=">
 	</div>
 	<script type="text/javascript" src="./calculator.js"></script>
 </body>

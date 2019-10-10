@@ -1,5 +1,8 @@
 let input_var = document.getElementById('input');
 let result = document.getElementById('result');
+let clearBtn = document.getElementById('clearScreen');
+let back = document.getElementById('back');
+let computation = document.getElementById('compute');
 
 const getInt = (num) => {
 	
@@ -132,6 +135,9 @@ const backspace = () => {
 
 const compute = () => {
 	var tot = eval(input_var.value);
-	result.value = tot;
-	input_var.value = "";
+	input_var.value = tot;
 }
+
+clearBtn.addEventListener("click", clearScreen);
+back.addEventListener("click", backspace);
+computation.addEventListener("click", compute);
