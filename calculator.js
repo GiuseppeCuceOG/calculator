@@ -7,6 +7,7 @@ let multiply = document.getElementById('multiply');
 let plus = document.getElementById('plus');
 let minus = document.getElementById('minus');
 let plusMinus = document.getElementById('plusMinus');
+let dot = document.getElementById('dot');
 
 let one = document.getElementById('one');
 let two = document.getElementById('two');
@@ -160,6 +161,7 @@ multiply.addEventListener("click", () => getOperand('*'));
 plus.addEventListener("click", () => getOperand('+'));
 minus.addEventListener("click", () => getOperand('-'));
 plusMinus.addEventListener("click", () => getOperand('+/-'));
+dot.addEventListener("click", () => getOperand('.'));
 one.addEventListener("click", () => getInt(1));
 two.addEventListener("click", () => getInt(2));
 three.addEventListener("click", () => getInt(3));
