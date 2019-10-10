@@ -8,28 +8,27 @@
 </head>
 <body>
 	<div class="calculator-header">
-		<input type="text" id="input" placeholder="0" readonly>
-		<input type="text" id="result" readonly>
+		<input type="text" class="userInput" id="userInput" placeholder="0" readonly>
 	</div>
 	<div class="calculator-buttons">
 		<input type="button" class="calculator-cancel" id="clearScreen" value="C">
-		<input type="button" class="interactiveBtn" value="&#247" onclick="getOperand('/')">
-		<input type="button" class="interactiveBtn" value="x" onclick="getOperand('*')">
+		<input type="button" class="interactiveBtn" id="division" value="&#247">
+		<input type="button" class="interactiveBtn" id="multiply" value="x">
 		<input type="button" class="interactiveBtn" id="back" value="&#8592">
-		<input type="button" class="interactiveBtn" value="1" onclick="getInt(1)">
-		<input type="button" class="interactiveBtn" value="2" onclick="getInt(2)">
-		<input type="button" class="interactiveBtn" value="3" onclick="getInt(3)">
-		<input type="button" class="interactiveBtn" value="+" onclick="getOperand('+')">
-		<input type="button" class="interactiveBtn" value="4" onclick="getInt(4)">
-		<input type="button" class="interactiveBtn" value="5" onclick="getInt(5)">
-		<input type="button" class="interactiveBtn" value="6" onclick="getInt(6)">
-		<input type="button" class="interactiveBtn" value="-" onclick="getOperand('-')">
-		<input type="button" class="interactiveBtn" value="7" onclick="getInt(7)">
-		<input type="button" class="interactiveBtn" value="8" onclick="getInt(8)">
-		<input type="button" class="interactiveBtn" value="9" onclick="getInt(9)">
-		<input type="button" class="interactiveBtn" value="+/-" onclick="getOperand('+/-')">
-		<input type="button" class="interactiveBtn" value="." onclick="getOperand('.')">
-		<input type="button" class="interactiveBtn" value="0" onclick="getInt(0)">
+		<input type="button" class="interactiveBtn" id="one" value="1">
+		<input type="button" class="interactiveBtn" id="two" value="2">
+		<input type="button" class="interactiveBtn" id="three" value="3">
+		<input type="button" class="interactiveBtn" id="plus" value="+">
+		<input type="button" class="interactiveBtn" id="four" value="4">
+		<input type="button" class="interactiveBtn" id="five" value="5">
+		<input type="button" class="interactiveBtn" id="six" value="6">
+		<input type="button" class="interactiveBtn" id="minus" value="-">
+		<input type="button" class="interactiveBtn" id="seven" value="7">
+		<input type="button" class="interactiveBtn" id="eight" value="8">
+		<input type="button" class="interactiveBtn" id="nine" value="9">
+		<input type="button" class="interactiveBtn" id="plusMinus" value="+/-">
+		<input type="button" class="interactiveBtn" id="dot" value=".">
+		<input type="button" class="interactiveBtn" id="zero" value="0">
 		<input type="button" class="interactiveBtn totalBtn" id="compute" value="=">
 	</div>
 	<script type="text/javascript" src="./calculator.js"></script>

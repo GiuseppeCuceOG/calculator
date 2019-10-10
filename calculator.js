@@ -1,8 +1,23 @@
-let input_var = document.getElementById('input');
-let result = document.getElementById('result');
+let input_var = document.getElementById('userInput');
 let clearBtn = document.getElementById('clearScreen');
 let back = document.getElementById('back');
 let computation = document.getElementById('compute');
+let division = document.getElementById('division');
+let multiply = document.getElementById('multiply');
+let plus = document.getElementById('plus');
+let minus = document.getElementById('minus');
+let plusMinus = document.getElementById('plusMinus');
+
+let one = document.getElementById('one');
+let two = document.getElementById('two');
+let three = document.getElementById('three');
+let four = document.getElementById('four');
+let five = document.getElementById('five');
+let six = document.getElementById('six');
+let seven = document.getElementById('seven');
+let eight = document.getElementById('eight');
+let nine = document.getElementById('nine');
+let zero = document.getElementById('zero');
 
 const getInt = (num) => {
 	
@@ -70,7 +85,7 @@ const getOperand = (op) => {
 			break;
 
 		case '*':
-			if(input_var.value.length < 1 || isNaN(input_var.value.slice(-1))) {
+			if((input_var.value.length == 1 && isNaN(input_var.value.slice(-1))) || input_var.value.length == 0) {
 				input_var.value += '';
 			}
 			else if(isNaN(input_var.value.slice(-1))) {
@@ -83,7 +98,7 @@ const getOperand = (op) => {
 			break;
 
 		case '/':
-			if(input_var.value.length < 1 || isNaN(input_var.value.slice(-1))) {
+			if((input_var.value.length == 1 && isNaN(input_var.value.slice(-1))) || input_var.value.length == 0) {
 				input_var.value += '';
 			}
 			else if(isNaN(input_var.value.slice(-1))) {
@@ -122,7 +137,6 @@ const getOperand = (op) => {
 
 const clearScreen = () => {
 	input_var.value = "";
-	result.value = "";
 }
 
 const backspace = () => {
@@ -141,3 +155,18 @@ const compute = () => {
 clearBtn.addEventListener("click", clearScreen);
 back.addEventListener("click", backspace);
 computation.addEventListener("click", compute);
+division.addEventListener("click", () => getOperand('/'));
+multiply.addEventListener("click", () => getOperand('*'));
+plus.addEventListener("click", () => getOperand('+'));
+minus.addEventListener("click", () => getOperand('-'));
+plusMinus.addEventListener("click", () => getOperand('+/-'));
+one.addEventListener("click", () => getInt(1));
+two.addEventListener("click", () => getInt(2));
+three.addEventListener("click", () => getInt(3));
+four.addEventListener("click", () => getInt(4));
+five.addEventListener("click", () => getInt(5));
+six.addEventListener("click", () => getInt(6));
+seven.addEventListener("click", () => getInt(7));
+eight.addEventListener("click", () => getInt(8));
+nine.addEventListener("click", () => getInt(9));
+zero.addEventListener("click", () => getInt(0));
