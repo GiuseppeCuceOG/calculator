@@ -20,6 +20,8 @@ let nine = document.getElementById('nine');
 let zero = document.getElementById('zero');
 let dotEnabled = true;
 
+
+/** Here we get the integers from the evenlisteners and inject the value on the string **/
 const getInt = (num) => {
 	
 	switch(num) {
@@ -65,7 +67,10 @@ const getInt = (num) => {
 			break;
 	}
 }
+//----------------------------------------
 
+
+/** Here we get the operational sign (+, -, *, /, +/-, .) from the evenlisteners **/
 const getOperand = (op) => {
 
 	switch(op) {
@@ -74,7 +79,6 @@ const getOperand = (op) => {
 				backspace();
 				input_var.value += '+';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			else if(input_var.value.length == 0) {
 				input_var.value += '';
@@ -82,7 +86,6 @@ const getOperand = (op) => {
 			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				input_var.value += '+';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			break;
 
@@ -91,7 +94,6 @@ const getOperand = (op) => {
 				backspace();
 				input_var.value += '-';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			else if(input_var.value.length == 0) {
 				input_var.value += '';
@@ -99,7 +101,6 @@ const getOperand = (op) => {
 			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.') {
 				input_var.value += '-';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			break;
 
@@ -111,12 +112,10 @@ const getOperand = (op) => {
 				backspace();
 				input_var.value += '*';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				input_var.value += '*';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			break;
 
@@ -128,12 +127,10 @@ const getOperand = (op) => {
 				backspace();
 				input_var.value += '/';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			else if(!isNaN(input_var.value.slice(-1)) && input_var.value.slice(-1) != '.' ) {
 				input_var.value += '/';
 				dotEnabled = true;
-				console.log(dotEnabled);
 			}
 			break;
 
@@ -155,12 +152,10 @@ const getOperand = (op) => {
 			if(!isNaN(input_var.value.slice(-1)) && input_var.value.length != 0 && dotEnabled) {
 				input_var.value += '.';
 				dotEnabled = false;
-				console.log(dotEnabled);
 			}
 			else if(input_var.value.length == 0) {
 				input_var.value += '0.';
 				dotEnabled = false;
-				console.log(dotEnabled);
 			}
 			else {
 				input_var.value += '';
@@ -168,16 +163,10 @@ const getOperand = (op) => {
 			break;
 	}
 }
+//----------------------------------------
 
-const toogleDot = () => {
-	if(dotEnabled) {
-		dotEnabled = false;
-	}
-	else {
-		dotEnabled = true;
-	}
-}
 
+/** Here we check if the string contains more than 11 chars**/
 const moreThanEleven = () => {
 	
 	if(input_var.value.length >= 11) {
@@ -187,26 +176,34 @@ const moreThanEleven = () => {
 		input_var.classList.remove("smallSizeFont");
 	}
 }
+//----------------------------------------
 
+
+/** Here we clear the inputfield **/
 const clearScreen = () => {
 	input_var.classList.remove("smallSizeFont");
 	input_var.value = "";
 	dotEnabled = true;
 }
+//----------------------------------------
 
+
+/** Here we delete one char at the time on the string **/
 const backspace = () => {
 	
 	moreThanEleven();
 
 	if(input_var.value != '' && isNaN(input_var.value.slice(-1))) {
 		dotEnabled = true;
-		console.log(dotEnabled);
 	}
 
 	var x = input_var.value.substring(0, input_var.value.length-1);
 	input_var.value = x;
 }
+//----------------------------------------
 
+
+//** Here we get the result of our mathematic expression **//
 const compute = () => {
 	var tot = eval(input_var.value);
 	input_var.value = tot;
@@ -218,6 +215,8 @@ const compute = () => {
 		dotEnabled = true;
 	}
 }
+//----------------------------------------
+
 
 clearBtn.addEventListener("click", clearScreen);
 back.addEventListener("click", backspace);
